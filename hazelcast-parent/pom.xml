@@ -84,7 +84,7 @@
         <aws.sdk2.version>2.27.10</aws.sdk2.version>
         <calcite.version>1.35.0</calcite.version>
         <classgraph.version>4.8.175</classgraph.version>
-        <debezium.version>1.9.8.Final</debezium.version>
+        <debezium.version>2.3.0.Final</debezium.version>
         <new.debezium.version>2.6.0.Final</new.debezium.version>
         <grpc.version>1.60.0</grpc.version>
         <hadoop.version>3.4.0</hadoop.version>
@@ -101,7 +101,7 @@
         Confluent depends on Kafka, and consideration should be given when upgrading
         https://docs.confluent.io/platform/current/installation/versions-interoperability.html#cp-and-apache-ak-compatibility
         -->
-        <kafka.version>3.7.1</kafka.version>
+        <kafka.version>3.8.0</kafka.version>
         <kotlin.version>2.0.20</kotlin.version>
         <reload4j.version>1.2.25</reload4j.version>
         <mssql.version>12.8.0.jre11</mssql.version>
