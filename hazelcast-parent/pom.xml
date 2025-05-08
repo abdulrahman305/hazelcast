@@ -109,7 +109,7 @@
         <objenesis.version>3.3</objenesis.version>
         <oracle.version>23.5.0.24.07</oracle.version>
         <osgi.version>4.2.0</osgi.version>
-        <parquet.version>1.14.1</parquet.version>
+        <parquet.version>1.15.2</parquet.version>
         <picocli.version>4.7.6</picocli.version>
         <postgresql.version>42.7.3</postgresql.version>
         <prometheus.version>0.20.0</prometheus.version>
