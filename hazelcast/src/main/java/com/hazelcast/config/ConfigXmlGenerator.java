@@ -205,6 +205,7 @@ public class ConfigXmlGenerator {
         namespacesConfiguration(gen, config);
         restServerConfiguration(gen, config);
         vectorCollectionXmlGenerator(gen, config);
+        memberAttributesXmlGenerator(gen, config);
         xml.append("</hazelcast>");
 
         String xmlString = xml.toString();
@@ -1316,6 +1317,17 @@ public class ConfigXmlGenerator {
                 .close();
     }
 
+    private void memberAttributesXmlGenerator(XmlGenerator gen, Config config) {
+        MemberAttributeConfig memberAttributeConfig = config.getMemberAttributeConfig();
+        if (!memberAttributeConfig.getAttributes().isEmpty()) {
+            gen.open("member-attributes");
+            for (Map.Entry<String, String> attribute : memberAttributeConfig.getAttributes().entrySet()) {
+                gen.node("attribute", attribute.getValue(), "name", attribute.getKey());
+            }
+            gen.close();
+        }
+    }
+
     public static void namespaceConfigurations(XmlGenerator gen, Config config) {
         Map<String, UserCodeNamespaceConfig> namespaces = config.getNamespacesConfig().getNamespaceConfigs();
         for (Map.Entry<String, UserCodeNamespaceConfig> entry : namespaces.entrySet()) {
@@ -1395,7 +1407,7 @@ public class ConfigXmlGenerator {
         public XmlGenerator appendProperties(Properties props) {
             if (!props.isEmpty()) {
                 open("properties");
-                Set<Object> keys = props.keySet();
+                Set keys = props.keySet();
                 for (Object key : keys) {
                     node("property", props.getProperty(key.toString()), "name", key.toString());
                 }
@@ -1404,9 +1416,15 @@ public class ConfigXmlGenerator {
             return this;
         }
 
-        public XmlGenerator appendProperties(Map<String, ? extends Comparable> props, String tagName) {
+        /**
+         * Appends the properties as &lt;property name="key"&gt;value&lt;/property&gt; elements inside a &lt;properties&gt;
+         * It uses the default tag name as "properties"
+         * @param props Properties to be added
+         * @return The xml generator
+         */
+        public XmlGenerator appendProperties(Map<String, ? extends Comparable> props) {
             if (!MapUtil.isNullOrEmpty(props)) {
-                open(tagName);
+                open("properties");
                 for (Map.Entry<String, ?> entry : props.entrySet()) {
                     node("property", entry.getValue(), "name", entry.getKey());
                 }

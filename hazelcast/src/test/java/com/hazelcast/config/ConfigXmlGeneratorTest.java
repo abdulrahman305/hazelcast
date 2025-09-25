@@ -916,6 +916,9 @@ public class ConfigXmlGeneratorTest extends HazelcastTestSupport {
             return 0;
         }
 
+        @Override
+        public void destroy() {
+        }
     }
 
     @Test
@@ -1608,6 +1611,15 @@ public class ConfigXmlGeneratorTest extends HazelcastTestSupport {
 
         var generatedConfig = getNewConfigViaXMLGenerator(config).getVectorCollectionConfigs();
         assertThat(generatedConfig).isEqualTo(vectorCollection);
+    }
+
+    @Test
+    public void testMemberAttributesConfig() {
+        Config expectedConfig = new Config().setMemberAttributeConfig(new MemberAttributeConfig()
+                .setAttribute("attribute1", "value1")
+                .setAttribute("attribute2", "value2"));
+        Config actualConfig = getNewConfigViaXMLGenerator(expectedConfig, false);
+        assertEquals(expectedConfig.getMemberAttributeConfig(), actualConfig.getMemberAttributeConfig());
     }
 
     private Config getNewConfigViaXMLGenerator(Config config) {

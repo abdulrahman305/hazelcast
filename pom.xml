@@ -23,13 +23,13 @@
     <parent>
         <groupId>com.hazelcast</groupId>
         <artifactId>hazelcast-parent</artifactId>
-        <version>5.6.0-SNAPSHOT</version>
+        <version>5.7.0-SNAPSHOT</version>
         <relativePath>hazelcast-parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>hazelcast-root</artifactId>
     <packaging>pom</packaging>
-    <version>5.6.0-SNAPSHOT</version>
+    <version>5.7.0-SNAPSHOT</version>
     <name>Hazelcast Root</name>
     <description>Hazelcast In-Memory DataGrid</description>
     <url>http://www.hazelcast.com/</url>
@@ -1133,7 +1133,7 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
-            <version>11.0.10</version>
+            <version>11.0.11</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
