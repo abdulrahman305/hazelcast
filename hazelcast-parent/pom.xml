@@ -91,7 +91,7 @@
         <avro.version>1.11.4</avro.version>
         <aws.sdk.version>1.12.791</aws.sdk.version>
         <aws.sdk2.version>2.33.13</aws.sdk2.version>
-        <calcite.version>1.35.0</calcite.version>
+        <calcite.version>1.41.0</calcite.version>
         <!--
         Calcite 1.35 dependency that has CVE
         Explicitly upgrade to a version not vulnerable to CVE - https://github.com/advisories/GHSA-gcg6-xv4f-f749
